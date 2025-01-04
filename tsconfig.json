@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES6", // Target ES6 (modern JavaScript)
+        "module": "CommonJS", // Module system compatible with Node.js
+        "strict": true, // Enable strict mode (good for catching errors)
+        "esModuleInterop": true, // Allow importing CommonJS modules as ES modules
+        "skipLibCheck": true, // Skip library checks for faster builds
+        "forceConsistentCasingInFileNames": true, // Ensure file names are case-sensitive
+        "outDir": "./dist", // Compiled JavaScript will be placed here
+        "rootDir": "./" // Root directory for TypeScript files
+    },
+    "include": [
+        "server.ts", // Include the root-level server.ts file
+        "src/**/*.ts" // Include all TypeScript files inside the src folder
+    ],
+    "exclude": ["node_modules"] // Exclude node_modules
+}

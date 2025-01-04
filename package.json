@@ -1,21 +1,31 @@
 {
-  "name": "finance-tracker-backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@prisma/client": "^6.1.0",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "prisma": "^6.1.0"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.0"
-  }
+    "name": "finance-tracker-backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "ts-node server.ts",
+        "start": "node dist/server.js",
+        "build": "tsc",
+        "migrate:dev": "npx prisma migrate dev",
+        "migrate:reset": "npx prisma migrate reset",
+        "generate": "npx prisma generate",
+        "seed": "ts-node scripts/generateData.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@faker-js/faker": "^9.3.0",
+        "@prisma/client": "^6.1.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "prisma": "^6.1.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^4.9.5"
+    }
 }
