@@ -6,11 +6,27 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") // Database URL will be in .env
+  url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  name         String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+}
+
+model Category {
+  id           Int           @id @default(autoincrement())
+  name         String
+  transactions Transaction[]
 }
 
 model Transaction {
@@ -19,4 +35,8 @@ model Transaction {
   amount      Float
   type        String // "income" or "expense"
   date        DateTime @default(now())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
 }
