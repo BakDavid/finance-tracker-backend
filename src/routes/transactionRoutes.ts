@@ -3,10 +3,8 @@ import * as transactionController from "../controllers/transactionController";
 
 const router = express.Router();
 
-// Route to create a new transaction
-router.post("/transactions", transactionController.createTransaction);
-
-// Route to get all transactions
-router.get("/transactions", transactionController.getAllTransactions);
+router.get("/", transactionController.getAllTransactions);
+router.post("/", transactionController.createTransaction);
+router.get("/:id", transactionController.getTransactionById);
 
 export default router;

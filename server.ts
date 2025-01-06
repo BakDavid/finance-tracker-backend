@@ -1,14 +1,22 @@
-// src/server.ts
+// server.ts
 import express from "express";
 import cors from "cors";
-import transactionRoutes from "./src/routes/transactionRoutes"; // Import routes
+import transactionRoutes from "./src/routes/transactionRoutes";
+import userRoutes from "./src/routes/userRoutes";
+import categoryRoutes from "./src/routes/categoryRoutes";
 
 const app = express();
 app.use(cors());
 app.use(express.json()); // For parsing JSON request bodies
 
 // Use the transaction routes
-app.use("/api", transactionRoutes); // Prefix the routes with /api
+app.use("/api/transactions", transactionRoutes);
+
+// Use the user routes
+app.use("/api/users", userRoutes);
+
+// Use the category routes
+app.use("/api/categories", categoryRoutes);
 
 // Start the server
 const port = process.env.PORT || 3000;

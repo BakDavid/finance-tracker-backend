@@ -34,3 +34,17 @@ export const getAllTransactions = async () => {
         }
     }
 };
+
+export const getTransactionById = async (
+    id: number
+): Promise<Transaction | null> => {
+    try {
+        return await prisma.transaction.findUnique({
+            where: { id },
+        });
+    } catch (error) {
+        throw new Error(
+            "Failed to fetch transaction: " + (error as Error).message
+        );
+    }
+};
