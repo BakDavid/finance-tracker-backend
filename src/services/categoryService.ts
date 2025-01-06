@@ -1,9 +1,7 @@
 import prisma from "../config/prismaClient";
 import { Category } from "@prisma/client";
 
-export const createCategory = async (
-    data: Omit<Category, "id" | "createdAt" | "updatedAt">
-) => {
+export const createCategory = async (data: Category) => {
     return await prisma.category.create({
         data,
     });
